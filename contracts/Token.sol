@@ -2,13 +2,16 @@
 pragma solidity >=0.4.16 <0.9.0;
 
 contract MyToken {
-    address public minter;
+    address payable public minter;
     mapping (address => uint) public balances;
+    uint rate;
+    
 
     event Sent(address from, address to, uint amount);
 
     constructor() {
-        minter = msg.sender;
+        minter = payable(msg.sender);
+        rate = 10**18;
     }
 
     function mint(address receiver, uint amount) public {
@@ -22,5 +25,19 @@ contract MyToken {
         balances[receiver] += amount;
 
         emit Sent(msg.sender, receiver, amount);
+    }
+
+    function setConversionRate(uint newRate) public {
+        if(msg.sender != minter) return;
+        rate = newRate;
+    }
+
+    function buyToken() public payable {
+        if(rate == 0) {
+            payable(msg.sender).transfer(msg.value);
+        } else {
+            minter.transfer(msg.value);
+            balances[msg.sender] += msg.value / rate;
+        }
     }
 }

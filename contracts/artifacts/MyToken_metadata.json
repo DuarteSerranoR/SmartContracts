@@ -55,6 +55,13 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "buyToken",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -77,7 +84,7 @@
 				"name": "minter",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "address payable",
 						"name": "",
 						"type": "address"
 					}
@@ -99,6 +106,19 @@
 					}
 				],
 				"name": "sender",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newRate",
+						"type": "uint256"
+					}
+				],
+				"name": "setConversionRate",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -132,11 +152,11 @@
 	},
 	"sources": {
 		"contracts/Token.sol": {
-			"keccak256": "0xdf5089f0ab96914cb20ef84bd68175f1c5ef333582db9174f4433fce046ecf5e",
+			"keccak256": "0x9ecdcc9b11450a80098c6c9775f14123bbb2d2934a444acf5e0b56481708054e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3c0452d392f0e49af649f73ea1dbad5e2794bd5a9d149e63e287bbf481a39c89",
-				"dweb:/ipfs/QmdBozPwJez9LS2mf7iae4K14WrGGcWGBBqW2zqzgpJPnw"
+				"bzz-raw://c4e3a8095994700dd68858d9c72336a50117cf154c7365bf7a21aa3e161f39db",
+				"dweb:/ipfs/Qmb9qiKbWEgqsBgsYGQUdgU38T8f1u1ndx8944gRm4dT65"
 			]
 		}
 	},
